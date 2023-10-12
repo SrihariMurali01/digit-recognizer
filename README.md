@@ -98,8 +98,8 @@ The `main.ipynb` notebook includes the following analysis:
 The project directory structure is organized as follows:
 
 - [`app.py`](/app.py): The Flask web application.
-- `templates/`: HTML templates for the web application.
-- `Model Training/`: Directory to store the trained model (HDF5 format).
+- [`templates`](/templates): HTML templates for the web application.
+- [`Model Training`](/Model%20Training): Directory to store the trained model (HDF5 format).
 - [`main.ipynb`](\\Model%20Training\\main.ipynb): Jupyter Notebook with analysis and model training code.
 
 ## Credits
