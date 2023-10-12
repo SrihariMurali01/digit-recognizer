@@ -1,7 +1,7 @@
 import atexit
 import json
 import os.path
-
+import socket
 from flask import Flask, render_template, request, jsonify
 import numpy as np
 from keras.models import load_model
@@ -46,7 +46,7 @@ def recognize_digit():
 
         # Check if the file has a filename
         if file.filename == '':
-            return jsonify({'error': 'No selected file'})
+            return render_template('index.html', recognized_digit=None)
 
         if file:
             # Read the image from the request
@@ -84,4 +84,4 @@ atexit.register(cleanup)
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, host=socket.gethostbyname(socket.gethostname()))
