@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Digit Recognition</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap">
+    <style>
+        body {
+            background-image: url('https://img.freepik.com/free-vector/network-mesh-low-poly-with-glowing-light_1017-29586.jpg?w=1060&t=st=1697111586~exp=1697112186~hmac=940b6cfd2decebace96bb891828702a57f177c29b60e19ecaef16766a581010c');
+            background-size: cover;
+            background-repeat: no-repeat;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            padding: 20px;
+            margin: 0;
+            font-family: 'Source Sans Pro', sans-serif;
+        }
+
+        .title {
+            font-size: 48px;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 20px;
+        }
+
+        .recognized-digit {
+            font-size: 36px;
+            color: rgba(255, 255, 255, 0.8);
+            margin-top: 30px;
+            transition: opacity 0.5s;
+        }
+
+        input[type="file"] {
+            border: none;
+            padding: 10px;
+            border-radius: 10px;
+            background-color: rgba(255, 255, 255, 0.8);
+            color: #000;
+            margin-top: 10px;
+        }
+
+        input[type="file"]:hover {
+            background-color: rgba(255, 255, 255, 0.9);
+        }
+
+        input[type="submit"] {
+            background-color: rgba(76, 175, 80, 0.9);
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: rgba(69, 160, 73, 0.9);
+        }
+
+        .fade-out {
+            margin-top: 30px;
+            opacity: 0;
+        }
+
+        .footer {
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.8);
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="title">Digit Recognizer</h1>
+    <form action="/recognize" method="post" enctype="multipart/form-data">
+        <input type="file" name="digit_image">
+        <input type="submit" value="Recognize">
+    </form>
+    <div class="recognized-digit fade-out">Recognized Digit: {{ recognized_digit }}</div>
+    <div class="footer">Created by - Srihari M | <a href="https://github.com/SrihariMurali01" style="color: rgba(255, 255, 255, 0.8); text-decoration: none;">GitHub</a></div>
+    <script>
+        // Add JavaScript to trigger the fade-in effect when necessary
+        setTimeout(function() {
+            document.querySelector('.recognized-digit').classList.remove('fade-out');
+        }, 1000); // Adjust the delay (in milliseconds) as needed
+    </script>
+</body>
+</html>
